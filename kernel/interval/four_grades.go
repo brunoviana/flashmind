@@ -14,9 +14,7 @@ const (
 	FourGradeMaxGrade int = 4
 )
 
-type FourGradesIntervalCalculator struct{}
-
-func (calculator *FourGradesIntervalCalculator) calculate(card *kernel.Card, grade GradeValue) error {
+func FourGradesIntervalCalculator(card *kernel.Card, grade GradeValue) error {
 
 	newEaseFactor, err := calculateEaseFactor(card.EaseFactor, FourGradeMaxGrade, int(grade))
 

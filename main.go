@@ -9,13 +9,11 @@ import (
 func main() {
 	card := kernel.Card{Repetition: 0, Interval: 1, EaseFactor: 2.5}
 
-	fourGradesCalculator := &interval.FourGradesIntervalCalculator{}
-
 	intervalCalculator := interval.IntervalCalculator{
-		CalculatorStrategy: fourGradesCalculator,
+		Calculate: interval.FourGradesIntervalCalculator,
 	}
 
-	intervalCalculator.CalculateInterval(&card, interval.FourGradesRecalled)
+	intervalCalculator.Calculate(&card, interval.FourGradesRecalled)
 
 	fmt.Printf(
 		"Repetition: %d, Interval: %d days, Ease Factor: %.2f\n",
@@ -24,7 +22,7 @@ func main() {
 		card.EaseFactor,
 	)
 
-	intervalCalculator.CalculateInterval(&card, interval.FourGradesRecalled)
+	intervalCalculator.Calculate(&card, interval.FourGradesRecalled)
 
 	fmt.Printf(
 		"Repetition: %d, Interval: %d days, Ease Factor: %.2f\n",
